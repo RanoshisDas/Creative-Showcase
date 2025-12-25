@@ -1,70 +1,237 @@
-# Getting Started with Create React App
+# Creative Showcase
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**Creative Showcase** is a modern image-sharing web application built using **React** and **Firebase**, allowing users to register, upload images, and showcase their creativity through public profiles accessible via usernames.
 
-## Available Scripts
+🔗 **Live Application**
+[http://creative-showcase-ranoshis.vercel.app/](http://creative-showcase-ranoshis.vercel.app/)
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## Table of Contents
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+* Overview
+* Features
+* Tech Stack
+* Installation & Execution
+* Screenshots
+* Firebase Security Rules
+* Project Architecture
+* Deployment
+* Future Improvements
+* Author
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## Overview
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Creative Showcase is designed as a **portfolio-grade full-stack frontend project**, demonstrating:
 
-### `npm run build`
+* Authentication and authorization
+* Cloud data modeling
+* Secure file uploads
+* Public profile routing
+* Real-world Firestore rule design
+* Clean component-based UI architecture
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The application supports **public image visibility** while keeping **user profile data protected**, following best practices.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Features
 
-### `npm run eject`
+### Authentication
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+* User signup & login using Firebase Authentication
+* Secure logout handling
+* Session persistence
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Image Upload
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+* Image upload with **real-time progress bar**
+* Firebase Storage integration
+* Metadata stored in Firestore
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Public Profiles
 
-## Learn More
+* Username-based public profile pages
+  `/user/:username`
+* Public access to uploaded images
+* Masonry grid layout
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### UI / UX
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+* Responsive design
+* Modal image preview
+* Clean navigation
+* Error handling and validation
 
-### Code Splitting
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Tech Stack
 
-### Analyzing the Bundle Size
+| Layer          | Technology          |
+| -------------- | ------------------- |
+| Frontend       | React, React Router |
+| Styling        | Tailwind CSS        |
+| Backend (BaaS) | Firebase            |
+| Authentication | Firebase Auth       |
+| Database       | Firestore           |
+| Storage        | Firebase Storage    |
+| Hosting        | Vercel              |
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+---
 
-### Making a Progressive Web App
+## Installation & Execution
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### Prerequisites
 
-### Advanced Configuration
+* Node.js (v16+ recommended)
+* npm
+* Git
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+---
 
-### Deployment
+### Step 1: Clone the Repository
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+```bash
+git clone https://github.com/<your-username>/<repository-name>.git
+cd <repository-name>
+```
 
-### `npm run build` fails to minify
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Step 2: Install Dependencies
+
+```bash
+npm install
+```
+
+---
+
+### Step 3: Configure Environment Variables
+
+Create a `.env` file in the root directory:
+
+```env
+REACT_APP_FIREBASE_API_KEY=your_api_key
+REACT_APP_FIREBASE_AUTH_DOMAIN=your_auth_domain
+REACT_APP_FIREBASE_PROJECT_ID=your_project_id
+REACT_APP_FIREBASE_STORAGE_BUCKET=your_storage_bucket
+REACT_APP_FIREBASE_MESSAGING_SENDER_ID=your_sender_id
+REACT_APP_FIREBASE_APP_ID=your_app_id
+```
+
+> `.env` is excluded from version control for security reasons.
+
+---
+
+### Step 4: Run the Application
+
+```bash
+npm start
+```
+
+Application runs at:
+
+```
+http://localhost:3000
+```
+
+---
+
+## Screenshots
+
+> 📌 Add real screenshots before final submission
+
+### Landing Page
+
+![Landing Page](./screenshots/landing.png)
+
+### User Profile
+
+![User Profile](./screenshots/profile.png)
+
+### User Login Page
+
+![Upload Progress](./screenshots/login.png)
+
+### User Signup Page
+
+![Image Modal](./screenshots/signup.png)
+
+---
+
+## Firebase Security Rules (Summary)
+
+### Firestore
+
+* User documents: readable by owner only
+* Images: publicly readable
+* Writes restricted to authenticated users
+
+### Storage
+
+* Image uploads allowed for authenticated users
+* Public read access enabled
+
+This ensures **data safety while allowing public content access**.
+
+---
+
+## Project Architecture
+
+```
+src/
+├── api/            # Firebase interaction logic
+├── components/     # Reusable UI components
+├── pages/          # Route-level pages
+├── firebase.js     # Firebase initialization
+├── App.jsx
+└── index.js
+```
+
+* API logic separated from UI
+* Modular, scalable structure
+* Clean state management using hooks
+
+---
+
+## Deployment
+
+The application is deployed on **Vercel** with CI-based builds.
+
+🔗 **Live URL**
+[http://creative-showcase-ranoshis.vercel.app/](http://creative-showcase-ranoshis.vercel.app/)
+
+---
+
+## Future Improvements
+
+* Username uniqueness enforcement at DB level
+* Likes and comments on images
+* User profile bio & avatar
+* Pagination / infinite scroll
+* Image optimization & compression
+
+---
+
+## Author
+
+**Ranoshis Das**
+B.Tech CSE (Data Science)
+Brainware University
+
+* Android & Web Developer
+* Firebase | React | Node.js | Next.js
+
+---
+
+## Placement / Interview Notes (Why This Project Matters)
+
+This project demonstrates:
+
+* Real-world Firebase usage (Auth, Firestore, Storage)
+* Secure access control with rules
+* Scalable frontend architecture
+* Deployment & environment management
+* Production-grade React practices
