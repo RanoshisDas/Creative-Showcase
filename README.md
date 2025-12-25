@@ -141,7 +141,7 @@ http://localhost:3000
 
 ## Screenshots
 
-> 📌 Add real screenshots before final submission
+> 📌 real screenshots
 
 ### Landing Page
 
