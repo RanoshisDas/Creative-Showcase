@@ -94,8 +94,8 @@ The application supports **public image visibility** while keeping **user profil
 ### Step 1: Clone the Repository
 
 ```bash
-git clone https://github.com/<your-username>/<repository-name>.git
-cd <repository-name>
+git clone https://github.com/RanoshisDas/Creative-Showcase.git
+cd Creative-Showcase
 ```
 
 ---
